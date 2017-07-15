@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: b2c-eureka
+server:
+  port: 8761
+eureka:
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+    serviceUrl:
+     defaultZone: http://localhost:${server.port}/eureka/
+     #defaultZone: http://106.14.177.29:${server.port}/eureka/
+
