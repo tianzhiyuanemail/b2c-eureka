@@ -22,6 +22,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<docker.image.prefix>b2c</docker.image.prefix>
 		<spring-cloud.version>Dalston.SR1</spring-cloud.version>
 	</properties>
 
@@ -62,7 +63,7 @@
 				<artifactId>docker-maven-plugin</artifactId>
 				<version>0.4.3</version>
 				<configuration>
-					<imageName>${name}/${project.artifactId}</imageName>
+					<imageName>${docker.image.prefix}/${project.artifactId}</imageName>
 					<dockerDirectory>src/main/docker</dockerDirectory>
 					<resources>
 						<resource>
@@ -76,6 +77,8 @@
 			<!-- end::plugin[] -->
 		</plugins>
 	</build>
+
+
 
 
 </project>
