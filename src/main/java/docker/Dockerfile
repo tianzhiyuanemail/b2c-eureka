@@ -2,6 +2,8 @@
 FROM  frolvlad/alpine-oraclejdk8
 #维护者的信息
 MAINTAINER lgl "457900130@qq.com"
+
+VOLUME /tmp
 #更新 假设我们更新了apt-get源，下载，解压并安装了一些软件包，
 #它们都保存在/var/lib/apt/lists/目录中。但是，运行应用时Docker镜像中并不需要这些文件。
 #我们最好将它们删除，因为它会使Docker镜像变大##。
