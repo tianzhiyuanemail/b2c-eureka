@@ -9,7 +9,7 @@ RUN apt-get update && rm -rf /var/lib/apt/lists/*
 #复制当前目录jdk
 #COPY jdk1.8.0_131 jdk1.8.0_131
 #复制项目jar
-ADD   b2c-eureka-0.0.1-SNAPSHOT.jar  app.jar
+ADD   b2c-eureka-0.0.1-SNAPSHOT.jar  b2c-eureka.jar
 #指定环境变量，会被RUN指令使用，并在容器运行时保存
 #ENV JAVA_HOME /jdk1.8.0_131
 #ENV PATH $JAVA_HOME/bin:$PATH
@@ -17,4 +17,4 @@ ADD   b2c-eureka-0.0.1-SNAPSHOT.jar  app.jar
 #对外开放端口
 EXPOSE 8761
 #配置容器启动后执行的命令，并且不可被 docker run 提供的参数覆盖。（每个 Dockerfile 中只能有一个 ENTRYPOINT(一般运行脚本) ，当指定多个时，只有最后一#个起效）
-CMD ["java","-jar","/app.jar"]
+CMD ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/b2c-eureka.jar"]
